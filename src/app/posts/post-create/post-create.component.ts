@@ -12,7 +12,7 @@ import { PostsService } from '../posts.service';
 export class PostCreateComponent implements OnInit {
   enteredTitle = '';
   enteredContent = '';
-  // @Output() postCreated = new EventEmitter<Post>();
+  // postCreated = new EventEmitter<Post>();
 
   constructor(public postsService: PostsService) { }
 
@@ -26,19 +26,19 @@ export class PostCreateComponent implements OnInit {
       return;
     }
 
-    const post: Post = {
-      title: form.value.title,
-      content: form.value.content
-      // title: this.enteredTitle,
-      // content: this.enteredContent
-    };
+    // const post: Post = {
+    //   title: form.value.title,
+    //   content: form.value.content
+    //   // title: this.enteredTitle,
+    //   // content: this.enteredContent
+    // };
     // this.postCreated.emit(post);
     // form.value.title = '';
     // form.value.content = '';
     // this.enteredTitle = '';
     // this.enteredContent = '';
-    form.resetForm();
     this.postsService.addPost(form.value.title, form.value.content);
+    form.resetForm();
   }
 
 }
